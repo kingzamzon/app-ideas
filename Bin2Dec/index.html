@@ -13,20 +13,20 @@
         <h2>Bin2Dec</h2>
         <br />
         <label for="">Enter Binary No in 1 and 0</label>
-        <input type="text" name="" id="binary-answer">
+        <input type="text" name="" id="binaryAnswer">
         <p class="display-error" id="error">Please Enter A Number Between 0 and 1</p>
         <br />
         <input type="button" value="Convert" class="btn"> 
         <br />
-        <input type="text" name="" id="decimal-answer" readonly>
+        <input type="text" name="" id="decimalAnswer" readonly>
     </div>
     <script>
         const btn = document.querySelector(".btn");
 
         btn.addEventListener("click", function() {
-            const binaryNo = document.querySelector("#binary-answer");
-
+            const binaryNo = document.querySelector("#binaryAnswer");
             let errorMsg = document.querySelector("#error");
+            let decimalAnswer = document.querySelector("#decimalAnswer");
 
             let binaryCheck = BinaryNumberChecker(binaryNo.value);
 
@@ -34,7 +34,9 @@
                 errorMsg.classList.remove("display-error");
             } else {
                 errorMsg.classList.add("display-error");
-                console.log(convertToDec(binaryNo.value));
+                let decimalNum = convertToDec(binaryNo.value);
+                console.log(decimalNum);
+                decimalAnswer.value = decimalNum;
             } 
         })
 
