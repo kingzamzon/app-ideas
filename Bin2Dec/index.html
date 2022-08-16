@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <div style="display:flex; justify-content: center;margin-top: 40px;"> -->
+    <div style="margin: 40px;">
+        <h2>Bin2Dec</h2>
+        <br />
+        <label for="">Enter Binary No in 1 and 0</label>
+        <input type="text" name="" id="binary-answer">
+        <p class="display-error" id="error">Please Enter A Number Between 0 and 1</p>
+        <br />
+        <input type="button" value="Convert" class="btn"> 
+        <br />
+        <input type="text" name="" id="decimal-answer" readonly>
+    </div>
+    <script>
+        const btn = document.querySelector(".btn");
+
+        btn.addEventListener("click", function() {
+            const binaryNo = document.querySelector("#binary-answer");
+
+            let errorMsg = document.querySelector("#error");
+
+            let binaryCheck = BinaryNumberChecker(binaryNo.value);
+
+            if(binaryCheck) {
+                errorMsg.classList.remove("display-error");
+            } else {
+                errorMsg.classList.add("display-error");
+                console.log(convertToDec(binaryNo.value));
+            } 
+        })
+
+        /* 
+        * Return false for binary
+        * Return true for non binary
+        */
+        function BinaryNumberChecker(num) {
+            let notBinary = /[^01]/;
+            return notBinary.test(num);
+        }
+
+        function convertToDec(num) {
+            let convertNum = 0;
+             num.split('')
+                    .reverse()
+                    .map( function(item, index) {
+                        return item === '1' && (convertNum += Math.pow(2, index))
+                    });
+            return convertNum;
+        }
+    </script>
+</body>
+</html>
