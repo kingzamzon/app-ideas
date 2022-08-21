@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         #rcorners {
-            border-radius: 0px;
+            border-radius: 20px;
             background: #73AD21;
             padding: 20px; 
             width: 200px;
@@ -29,13 +29,13 @@
     </div>
 
     <label for="">Border Top Left</label>
-    <input type="text" name="" id=""> <br>
+    <input type="text" name="" id="border-top-left" value="0"> <br>
     <label for="">Border Top Right</label>
-    <input type="text" name="" id=""> <br>
+    <input type="text" name="" id="border-top-right" value="0"> <br>
     <label for="">Border Bottom Left</label>
-    <input type="text" name="" id=""> <br>
+    <input type="text" name="" id="border-bottom-left" value="0"> <br>
     <label for="">Border Bottom Right</label>
-    <input type="text" name="" id=""> <br>
+    <input type="text" name="" id="border-bottom-right" value="0"> <br>
 
     <input type="button" value="Copy" onclick="copyItem()">
 
@@ -50,6 +50,31 @@
 
             alert("Copied");
         }
+
+        const borderTopLeft = document.querySelector("#border-top-left");
+        const borderTopRight = document.querySelector("#border-top-right");
+        const borderBottomLeft = document.querySelector("#border-bottom-left");
+        const borderBottomRight = document.querySelector("#border-bottom-right");
+
+        borderTopLeft.addEventListener("keyup", function(e) {
+            // add to all of dem
+            console.log(borderTopLeft.value);
+        });
+
+        borderTopRight.addEventListener("keyup", function(e) {
+            // add to all of dem top right to bottom right
+            console.log(borderTopRight.value);
+        });
+
+        borderBottomLeft.addEventListener("keyup", function(e) {
+            // add to 3 side bordertop to bottomleft
+            console.log(borderBottomLeft.value);
+        });
+
+        borderBottomRight.addEventListener("keyup", function(e) {
+            // add to all of dem
+            console.log(borderBottomRight.value);
+        });
     </script>
 </body>
 </html>
