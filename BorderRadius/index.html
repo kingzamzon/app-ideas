@@ -5,16 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #rcorners {
+            border-radius: 0px;
+            background: #73AD21;
+            padding: 20px; 
+            width: 200px;
+            height: 150px;  
+        }
+        .rinput {
+            background: #fff;
+            padding: 0px; 
+            margin: 0px; 
+            width: 200px;
+            height: 150px;  
+        }
+    </style>
 </head>
 <body>
-    <div style="">
-        <input type="text" value="border radius">
+    <div id="rcorners">
+        <!-- switch to text area -->
+        <input type="text" class="rinput" value="border radius">
     </div>
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
 
-    <input type="button" value="Copy">
+    <label for="">Border Top Left</label>
+    <input type="text" name="" id=""> <br>
+    <label for="">Border Top Right</label>
+    <input type="text" name="" id=""> <br>
+    <label for="">Border Bottom Left</label>
+    <input type="text" name="" id=""> <br>
+    <label for="">Border Bottom Right</label>
+    <input type="text" name="" id=""> <br>
+
+    <input type="button" value="Copy" onclick="copyItem()">
+
+    <script>
+        function copyItem() {
+            let copyText = document.querySelector(".rinput");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 9999);
+
+            navigator.clipboard.writeText(copyText.value);
+
+            alert("Copied");
+        }
+    </script>
 </body>
 </html>
