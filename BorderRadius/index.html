@@ -7,7 +7,6 @@
     <title>Document</title>
     <style>
         #rcorners {
-            border-radius: 20px;
             background: #73AD21;
             padding: 20px; 
             width: 200px;
@@ -23,7 +22,8 @@
     </style>
 </head>
 <body>
-    <div id="rcorners">
+            
+    <div id="rcorners" style="border-radius: 0px;">
         <!-- switch to text area -->
         <input type="text" class="rinput" value="border radius">
     </div>
@@ -32,10 +32,10 @@
     <input type="text" name="" id="border-top-left" value="0"> <br>
     <label for="">Border Top Right</label>
     <input type="text" name="" id="border-top-right" value="0"> <br>
-    <label for="">Border Bottom Left</label>
-    <input type="text" name="" id="border-bottom-left" value="0"> <br>
     <label for="">Border Bottom Right</label>
     <input type="text" name="" id="border-bottom-right" value="0"> <br>
+    <label for="">Border Bottom Left</label>
+    <input type="text" name="" id="border-bottom-left" value="0"> <br>
 
     <input type="button" value="Copy" onclick="copyItem()">
 
@@ -51,30 +51,47 @@
             alert("Copied");
         }
 
+        const divRadius = document.querySelector("#rcorners");
         const borderTopLeft = document.querySelector("#border-top-left");
         const borderTopRight = document.querySelector("#border-top-right");
         const borderBottomLeft = document.querySelector("#border-bottom-left");
         const borderBottomRight = document.querySelector("#border-bottom-right");
 
         borderTopLeft.addEventListener("keyup", function(e) {
-            // add to all of dem
+            // add to all of dem            
+            divRadius.style.backgroundColor =  'red';
+            divRadius.style.borderRadius =  borderTopLeft.value+'px';
             console.log(borderTopLeft.value);
         });
 
         borderTopRight.addEventListener("keyup", function(e) {
             // add to all of dem top right to bottom right
+            divRadius.style.backgroundColor =  'green';
+            divRadius.style.borderRadius =  borderTopLeft.value+'px' + " " + borderTopRight.value+'px';
             console.log(borderTopRight.value);
-        });
-
-        borderBottomLeft.addEventListener("keyup", function(e) {
-            // add to 3 side bordertop to bottomleft
-            console.log(borderBottomLeft.value);
         });
 
         borderBottomRight.addEventListener("keyup", function(e) {
             // add to all of dem
+            divRadius.style.backgroundColor =  'purple';
+            divRadius.style.borderRadius =  borderTopLeft.value+'px' + 
+                                            " " + borderTopRight.value+'px' +
+                                            " " + borderBottomRight.value+'px';
             console.log(borderBottomRight.value);
         });
+
+        borderBottomLeft.addEventListener("keyup", function(e) {
+            // add to 3 side bordertop to bottomleft
+            divRadius.style.backgroundColor =  'blue';
+            divRadius.style.borderRadius =  borderTopLeft.value+'px' + 
+                                            " " + borderTopRight.value+'px' +
+                                            " " + borderBottomRight.value+'px' +
+                                            " " + borderBottomLeft.value+'px';
+            
+            console.log(borderBottomLeft.value);
+        });
+
+        
     </script>
 </body>
 </html>
