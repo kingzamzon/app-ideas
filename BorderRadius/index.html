@@ -9,15 +9,15 @@
         #rcorners {
             background: #73AD21;
             padding: 20px; 
-            width: 200px;
-            height: 150px;  
+            width: 300px;
+            height: 250px;  
         }
         .rinput {
             background: #fff;
             padding: 0px; 
             margin: 0px; 
-            width: 200px;
-            height: 150px;  
+            width: 300px;
+            height: 250px;  
         }
     </style>
 </head>
@@ -51,6 +51,7 @@
             alert("Copied");
         }
 
+        const rInput = document.querySelector(".rinput");
         const divRadius = document.querySelector("#rcorners");
         const borderTopLeft = document.querySelector("#border-top-left");
         const borderTopRight = document.querySelector("#border-top-right");
@@ -59,36 +60,36 @@
 
         borderTopLeft.addEventListener("keyup", function(e) {
             // add to all of dem            
-            divRadius.style.backgroundColor =  'red';
+            // divRadius.style.backgroundColor =  'red';
             divRadius.style.borderRadius =  borderTopLeft.value+'px';
-            console.log(borderTopLeft.value);
+            rInput.value = divRadius.style.cssText; 
         });
 
         borderTopRight.addEventListener("keyup", function(e) {
             // add to all of dem top right to bottom right
-            divRadius.style.backgroundColor =  'green';
+            // divRadius.style.backgroundColor =  'green';
             divRadius.style.borderRadius =  borderTopLeft.value+'px' + " " + borderTopRight.value+'px';
-            console.log(borderTopRight.value);
+            rInput.value = divRadius.style.cssText; 
         });
 
         borderBottomRight.addEventListener("keyup", function(e) {
             // add to all of dem
-            divRadius.style.backgroundColor =  'purple';
+            // divRadius.style.backgroundColor =  'purple';
             divRadius.style.borderRadius =  borderTopLeft.value+'px' + 
                                             " " + borderTopRight.value+'px' +
                                             " " + borderBottomRight.value+'px';
-            console.log(borderBottomRight.value);
+            rInput.value = divRadius.style.cssText; 
         });
 
         borderBottomLeft.addEventListener("keyup", function(e) {
             // add to 3 side bordertop to bottomleft
-            divRadius.style.backgroundColor =  'blue';
+            // divRadius.style.backgroundColor =  'blue';
             divRadius.style.borderRadius =  borderTopLeft.value+'px' + 
                                             " " + borderTopRight.value+'px' +
                                             " " + borderBottomRight.value+'px' +
                                             " " + borderBottomLeft.value+'px';
-            
-            console.log(borderBottomLeft.value);
+
+            rInput.value = divRadius.style.cssText; 
         });
 
         
