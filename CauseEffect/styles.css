@@ -1,0 +1,7 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+.lists {
+    width: 20%;
+}
